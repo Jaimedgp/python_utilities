@@ -17,47 +17,47 @@ os.system('cls' if os.name == 'nt' else 'clear')
 #######         INTRODUCE DATA(LISTAS)         ##########
 #########################################################
 
-Mx = [] # inicialize the data list of DV
-boolone = True # inicialize the boolean used into the while
-samplex = 1 # inicialize the number of samples of DV
+Mx = [] # initialize the data list of DV
+boolone = True # initialize the boolean used into the while
+samplex = 1 # initialize the number of samples of DV
 
 while boolone : # loop to insert data 
-	x = (raw_input('%s x = ' %(samplex))) # introduce a new value
+    x = (raw_input('%s x = ' %(samplex))) # introduce a new value
 
-	if str(x) == 'End' or str(x) == 'end' or str(x) == 'Fin' or str(x) == 'fin': # if the new value is 'end', stop the loop
-		boolone = False # stop the loop 
-	else:
-		boolone = True # continue with the loop
-		Mx.append(float(x)) # append a new element to the list
-		samplex += 1 # plus another sample
+    if str(x) == 'End' or str(x) == 'end' or str(x) == 'Fin' or str(x) == 'fin': # if the new value is 'end', stop the loop
+        boolone = False # stop the loop 
+    else:
+        boolone = True # continue with the loop
+        Mx.append(float(x)) # append a new element to the list
+        samplex += 1 # plus another sample
 
-My = [] # inicialize the data list of IV
-booltwo = True # inicialize the boolean used into the while
-sampley = 1 # inicialize the number of samples of IV
+My = [] # initialize the data list of IV
+booltwo = True # initialize the boolean used into the while
+sampley = 1 # initialize the number of samples of IV
 
 while booltwo : # loop to insert data
-	y = (raw_input('%s y = ' %(sampley))) # introduce a new value
+    y = (raw_input('%s y = ' %(sampley))) # introduce a new value
 
-	if str(y) == 'End' or str(y) == 'end' or str(y) == 'Fin' or str(y) == 'fin': # if the new value is 'end', stop the loop
-		booltwo = False # stop the loop 
-	else:
-		booltwo = True # continue with the loop
-		My.append(float(y)) # append a new element to the list
-		sampley += 1 # plus another sample
+    if str(y) == 'End' or str(y) == 'end' or str(y) == 'Fin' or str(y) == 'fin': # if the new value is 'end', stop the loop
+        booltwo = False # stop the loop 
+    else:
+        booltwo = True # continue with the loop
+        My.append(float(y)) # append a new element to the list
+        sampley += 1 # plus another sample
 
 #########################################################
-#######            SAVE DATA(LISTS)           ##########
+#######            SAVE DATA(LISTS)            ##########
 #########################################################
 
 fl = open('Directory of file', 'w') # open and create an .ods file
-	for x in xrange(1): # loop to write the file
-		fl.write('title 1' + '\t' + 'title 2' + "\n") # write a header
-		for i in range(len(Mx)): # loop to write element by element to the file
-			fl.write('element1.1' + "\t" + 'element2.1'+ "\n") # write in two colums
+    for x in xrange(1): # loop to write the file
+        fl.write('title 1' + '\t' + 'title 2' + "\n") # write a header
+        for i in range(len(Mx)): # loop to write element by element to the file
+            fl.write('element1.1' + "\t" + 'element2.1'+ "\n") # write in two colums
 fl.close() # close file
 
 #########################################################
-#######            PLOT DATA(LISTS)           ##########
+#######            PLOT DATA(LISTS)            ##########
 #########################################################
 
 # Represent the graphic
@@ -72,7 +72,7 @@ plt.show()
 f2 = plt.figure(figsize=(12.0, 20.0))
 
 #########################################################
-#######       CONVERT FILE 2 DATA(LISTS)      ##########
+#######       CONVERT FILE 2 DATA(LISTS)       ##########
 #########################################################
 
 fl = open(nameData,'r')
@@ -83,12 +83,12 @@ Data = fl.read().split( )
 Mx = []
 My = []
 for i in xrange(len(Data)/2):
-	Mx.append(float(Data[i*2]))
-	My.append(float(Data[2*(i+1) - 1]))
+    Mx.append(float(Data[i*2]))
+    My.append(float(Data[2*(i+1) - 1]))
 fl.close()
 
 #########################################################
-#######       		MY FIRST SCRIPT		       ##########
+#######           MY FIRST SCRIPT              ##########
 #########################################################
 
 nombre = raw_input("¿Cual es tu nombre?")
@@ -103,7 +103,7 @@ for i in range(1000):
 fl.close()
 
 #########################################################
-#######       		SOME NOTES   		       ##########
+#######             SOME NOTES                 ##########
 #########################################################
 
 def costo_del_vuelo(ciudad):
@@ -130,6 +130,6 @@ def Deferenciabilidad():
     x = Symbol('x')
     y = 2*log(3*x)
     while 1 == 1:
-        y = y.diff(x)
+        y = y.diff(x) # derivada de la funcion y respecto a x
         print y
         raw_input('')
