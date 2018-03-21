@@ -1,20 +1,21 @@
 import sys
 sys.path.insert(0, '/home/jaimedgp/J_Graphics_P/')
-import OpenScript as op
+import OpenScript as op #https://github.com/Jaimedgp/J_Graphics_P
 from math import sqrt, sin, cos
 
 def gratingParameter():
 
-	table, index = op.Open_file_CSV('/home/jaimedgp/Dropbox/VerbTeX/Exp_Optics/Diffraction/dParameter.csv')
+	table, index = op.Open_file_CSV('/home/jaimedgp/Dropbox/VerbTeX/'+
+		                                'Exp_Optics/Diffraction/dParameter.csv')
 
 	MedR = sum(table[index[3]])/6 # Media del angulo en radianes
 	MedG = sum(table[index[2]])/6 # Media del angulo en grados
 	MedD = sum(table[index[4]])/6  # Media del parametro de malla
 
-	xxxxx = 0
+	sqdiff = 0
 	for i in table[index[3]]:
-		xxxxx += (i-MedR)**2
-	varTtaR = xxxxx/5
+		sqdiff += (i-MedR)**2
+	varTtaR = sqdiff/5
 
 	varMedTtaR = varTtaR/6
 
@@ -23,20 +24,19 @@ def gratingParameter():
 
 	return MedDTta, varDMed
 
-#######################################################################################################
-
 def unknowWaveLength(MedD, varD):
 
-	table, index = op.Open_file_CSV('/home/jaimedgp/Dropbox/VerbTeX/Exp_Optics/Diffraction/unKnowWL.csv')
+	table, index = op.Open_file_CSV('/home/jaimedgp/Dropbox/VerbTeX/'+
+		                                  'Exp_Optics/Diffraction/unKnowWL.csv')
 
 	MedR = sum(table[index[3]])/6 # Media del angulo en radianes
 	MedG = sum(table[index[2]])/6 # Media del angulo en grados
 
 
-	xxxxx = 0
+	sqdiff = 0
 	for i in table[index[3]]:
-		xxxxx += (i-MedR)**2
-	varTtaR = xxxxx/5
+		sqdiff += (i-MedR)**2
+	varTtaR = sqdiff/5
 
 	varMedTtaR = varTtaR/6
 
